@@ -8,10 +8,6 @@ alice_in_wonderland: str = ('"Would you tell me, please, which way I ought to go
 # task 02 == Знайдіть та відобразіть всі символи одинарної лапки (') у тексті
 # task 03 == Виведіть змінну alice_in_wonderland на друк
 
-for char in alice_in_wonderland:
-    if char == "'":
-        print(char)
-
 print(alice_in_wonderland)
 
 """
