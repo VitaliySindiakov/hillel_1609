@@ -24,8 +24,8 @@ print(alice_in_wonderland)
 """
 black_see = 436402
 azov_see = 37800
-sq_sum = black_see * azov_see
-print(f"Площа, яку займають Чорне та Азовське моря разом {sq_sum} км2")
+see_sq = black_see * azov_see
+print(f"Площа, яку займають Чорне та Азовське моря разом {see_sq} км2")
 
 # task 05
 """
