@@ -41,6 +41,6 @@ print(people_records)
 for person in people_records:
     first_name, last_name, age, position, location = person
     if age >= 30:
-        print(f"Person {person} is older 30")
+        print(f"Person {person} is 30 or older")
     else:
         print(f"Person {person} is younger 30")
