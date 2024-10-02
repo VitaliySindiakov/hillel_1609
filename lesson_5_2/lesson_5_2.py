@@ -27,18 +27,19 @@ people_records.insert(0, ("Vitalii", "Sindiakov", 35, "AQA", "Kyiv"))
 print(people_records)
 
 # 2 - In modified list swap elements with indexes 1 and 5 (1<->5). Print result
-person_2 = people_records[1]
-person_6 = people_records[5]
-people_records.pop(1)
-people_records.insert(1, person_6)
-people_records.pop(5)
-people_records.insert(5, person_2)
+people_records[1], people_records[5] = people_records[5], people_records[1]
 
 print(people_records)
 
 # 3 - check that all people in modified list with records indexes 6, 10, 13
 #   have age >=30. Print condition check result
-for person in people_records:
+
+special_people = []
+special_people.append(people_records[6])
+special_people.append(people_records[10])
+special_people.append(people_records[13])
+
+for person in special_people:
     first_name, last_name, age, position, location = person
     if age >= 30:
         print(f"Person {person} is 30 or older")
