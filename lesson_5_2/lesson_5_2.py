@@ -33,13 +33,7 @@ print(people_records)
 
 # 3 - check that all people in modified list with records indexes 6, 10, 13
 #   have age >=30. Print condition check result
-
-special_people = []
-special_people.append(people_records[6])
-special_people.append(people_records[10])
-special_people.append(people_records[13])
-
-for person in special_people:
+for person in [people_records[6], people_records[10], people_records[13]]:
     first_name, last_name, age, position, location = person
     if age >= 30:
         print(f"Person {person} is 30 or older")
