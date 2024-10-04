@@ -10,5 +10,4 @@ uniq_symbols = set()
 for symbol in word:
     uniq_symbols.add(symbol)
 
-
-print(len(uniq_symbols)>=10)
+print(len(uniq_symbols) >= 10)
