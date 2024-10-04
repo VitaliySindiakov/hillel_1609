@@ -5,21 +5,10 @@
 # Строку отримати за допомогою функції input()
 
 word = input("Plese enter word: ")
-uniq_symbols: dict = {}
+uniq_symbols = set()
 
 for symbol in word:
-    symbol = symbol.lower()
-    if symbol in uniq_symbols.keys():
-        uniq_symbols[symbol] = uniq_symbols.get(symbol) + 1
-    else:
-        uniq_symbols[symbol] = 1
+    uniq_symbols.add(symbol)
 
-print(uniq_symbols)
 
-is_uniq_present = False
-for value in uniq_symbols.values():
-    if value >= 10:
-        is_uniq_present = True
-        break
-
-print(is_uniq_present)
+print(len(uniq_symbols)>=10)
