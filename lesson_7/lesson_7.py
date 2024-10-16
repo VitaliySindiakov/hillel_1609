@@ -17,38 +17,39 @@ def multiplication_table(number):
         multiplier += 1
 
 
-multiplication_table(3)
-
 # task 2
 """  Написати функцію, яка обчислює суму двох чисел.
 """
+
+
 def sum_of_two(first: int, second: int):
+
     return first + second
 
-
-print(sum_of_two(1, 2))
 
 # task 3
 """  Написати функцію, яка розрахує середнє арифметичне списку чисел.
 """
+
+
 def arithmetic_mean(numbers: list) -> float:
     return sum(numbers) / len(numbers)
 
 
-print(arithmetic_mean([1, 2, 3, 4, 5]))
-
 # task 4
 """  Написати функцію, яка приймає рядок та повертає його у зворотному порядку.
 """
+
+
 def revers_string(text: str) -> str:
     return text[::-1]
 
 
-print(revers_string("Hello world"))
-
 # task 5
 """  Написати функцію, яка приймає список слів та повертає найдовше слово у списку.
 """
+
+
 def get_longest_word(words: list) -> str:
     max_len_word = ""
     for word in words:
@@ -57,23 +58,14 @@ def get_longest_word(words: list) -> str:
     return max_len_word
 
 
-print(get_longest_word(["Car", "Bycycle", "Helicopter", "Train"]))
-
 # task 6
 """  Написати функцію, яка приймає два рядки та повертає індекс першого входження другого рядка
 у перший рядок, якщо другий рядок є підрядком першого рядка, та -1, якщо другий рядок
 не є підрядком першого рядка."""
+
+
 def find_substring(str1: str, str2: str):
     return str1.find(str2)
-
-
-str1 = "Hello, world!"
-str2 = "world"
-print(find_substring(str1, str2))  # поверне 7
-
-str1 = "The quick brown fox jumps over the lazy dog"
-str2 = "cat"
-print(find_substring(str1, str2))  # поверне -1
 
 
 """  Оберіть будь-які 4 таски з попередніх домашніх робіт та
@@ -91,6 +83,7 @@ people_records = [
     ('Ethan', 'Anderson', 36, 'Product Manager', 'Phoenix')
 ]
 
+
 def check_person_age_by_index(people: list) -> None:
     for person in people:
         first_name, last_name, age, position, location = person
@@ -100,7 +93,6 @@ def check_person_age_by_index(people: list) -> None:
             print(f"Person {person} is younger 30")
 
 
-check_person_age_by_index([people_records[0], people_records[2], people_records[4]])
 
 
 # task 8
@@ -126,9 +118,6 @@ def get_cars_by_criteria(criteria: tuple) -> dict:
     return filtered_cars
 
 
-print(get_cars_by_criteria((2017, 1.6, 36000)))
-
-
 # task 9
 # ___ LESSON 6.3 ___
 lst1 = ['1', '2', 3, True, 'False', 5, '6', 7, 8, 'Python', 9, 0, 'Lorem Ipsum']
@@ -138,9 +127,6 @@ def get_str_list(lst1: list) -> list:
     return [el for el in lst1 if isinstance(el, str)]
 
 
-print(get_str_list(lst1))
-
-
 # task 10
 # ___ LESSON 6.4 ___
 
@@ -148,5 +134,26 @@ def even_numbers_sum(numbers: list) -> int:
     return sum([k for k in numbers if k % 2 == 0])
 
 
-lst1 = [1, 2, 3, 4, 5, 6, 7, 8]
-print(even_numbers_sum(lst1))
+if __name__ == '__main__':
+    multiplication_table(3)
+    print(sum_of_two(1, 2))
+    print(arithmetic_mean([1, 2, 3, 4, 5]))
+    print(revers_string("Hello world"))
+    print(get_longest_word(["Car", "Bycycle", "Helicopter", "Train"]))
+
+    str1 = "Hello, world!"
+    str2 = "world"
+    print(find_substring(str1, str2))  # поверне 7
+
+    str1 = "The quick brown fox jumps over the lazy dog"
+    str2 = "cat"
+    print(find_substring(str1, str2))  # поверне -1
+
+    check_person_age_by_index([people_records[0], people_records[2], people_records[4]])
+
+    print(get_cars_by_criteria((2017, 1.6, 36000)))
+
+    print(get_str_list(lst1))
+
+    lst1 = [1, 2, 3, 4, 5, 6, 7, 8]
+    print(even_numbers_sum(lst1))
