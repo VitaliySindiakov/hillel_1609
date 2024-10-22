@@ -7,7 +7,7 @@ from datetime import datetime
 @pytest.mark.parametrize("username, status, current_time", [
     ("Andrew", "success", datetime.now().time()),
     ("Karl", "expired", datetime.now().time()),
-    ("Anna", "error", datetime.now().time())
+    ("Anna", "failed", datetime.now().time())
 ])
 def test_logger(username: str, status: str, current_time: datetime):
     log_event(username, status, current_time)
