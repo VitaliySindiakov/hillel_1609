@@ -1,0 +1,10 @@
+
+  "status": "success",
+  "data": {
+    "localizations": {
+      "forgotUsernameSuccess.title": "Your username is",
+      "footer.copyright": "© 2023 Ameriabank CJSC",
+    }
+  },
+  "errorMessages": null
+}
