@@ -27,7 +27,7 @@ class Rhombus:
         setattr(self, "angle_b", 180 - angle_a)
 
     def get_angle_b(self):
-        return self.angle_a
+        return self.angle_b
 
     def set_angle_b(self, angle_b):
         logger.info(f"set angle_b={angle_b}")
