@@ -8,9 +8,9 @@ logger = logging.getLogger("logs")
 
 class Rhombus:
     def __init__(self):
-        self.angle_b = None
-        self.angle_a = None
-        self.side_a = None
+        self.__angle_b = None
+        self.__angle_a = None
+        self.__side_a = None
 
     def __str__(self):
         return f"Rhombus:\n[side_a={self.side_a} angle_a={self.angle_a} angle_b={self.angle_b}]"
@@ -49,8 +49,7 @@ class Rhombus:
 
 
 rhombus_1 = Rhombus()
-rhombus_1.set_side_a(5)
-rhombus_1.set_side_a(0)
-rhombus_1.set_angle_a(45)
-rhombus_1.set_angle_b(60)
+rhombus_1.side_a = 0
+rhombus_1.angle_a = 0
+rhombus_1.angle_b = 0
 print(rhombus_1)
