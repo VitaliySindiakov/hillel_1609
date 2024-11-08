@@ -8,47 +8,54 @@ logger = logging.getLogger("logs")
 
 class Rhombus:
     def __init__(self):
-        self.__angle_b = None
         self.__angle_a = None
+        self.__angle_b = None
         self.__side_a = None
 
+    def __setattr__(self, name, value):
+        if value is not None:
+            if value <= 0:
+                logger.error("Value should be > 0")
+                return
+        super().__setattr__(name, value)
+
     def __str__(self):
-        return f"Rhombus:\n[side_a={self.side_a} angle_a={self.angle_a} angle_b={self.angle_b}]"
+        return f"Rhombus:\n[side_a={self.__side_a} angle_a={self.__angle_a} angle_b={self.__angle_b}]"
 
-    def get_angle_a(self):
-        return self.angle_a
+    @property
+    def side_a(self):
+        return self.__side_a
 
-    def set_angle_a(self, angle_a):
-        logger.info(f"set angle_a={angle_a}")
-        if self.angle_b is not None:
-            logger.error(f"angle_b already defined angle_b={self.angle_b}")
-            logger.error(f"Overriding angle_b={180 - angle_a}")
-        setattr(self, "angle_a", angle_a)
-        setattr(self, "angle_b", 180 - angle_a)
+    @side_a.setter
+    def side_a(self, value):
+        self.__side_a = value
 
-    def get_angle_b(self):
-        return self.angle_b
+    @property
+    def angle_a(self):
+        return self.__angle_a
 
-    def set_angle_b(self, angle_b):
-        logger.info(f"set angle_b={angle_b}")
-        if self.angle_a is not None:
-            logger.error(f"angle_a already defined angle_a={self.angle_a}")
-            logger.error(f"Overriding with new value angle_a={180 - angle_b}")
-        setattr(self, "angle_b", angle_b)
-        setattr(self, "angle_a", 180 - angle_b)
+    @angle_a.setter
+    def angle_a(self, value):
+        self.__angle_a = value
+        self.__angle_b = 180 - value
 
-    def get_side_a(self):
-        return self.side_a
+    @property
+    def angle_b(self):
+        return self.__angle_b
 
-    def set_side_a(self, side):
-        if side <= 0:
-            logger.error(f"Couldn't set side={side}. Use value > 0")
-            return
-        logger.info(f"set side_a={side}")
-        setattr(self, "side_a", side)
+    @angle_b.setter
+    def angle_b(self, value):
+        self.__angle_b = value
+        self.__angle_a = 180 - value
 
 
 rhombus_1 = Rhombus()
+rhombus_1.angle_a = 45
+print(rhombus_1)
+rhombus_1.angle_b = 63
+rhombus_1.side_a = 5
+print(rhombus_1)
+
 rhombus_1.side_a = 0
 rhombus_1.angle_a = 0
 rhombus_1.angle_b = 0
