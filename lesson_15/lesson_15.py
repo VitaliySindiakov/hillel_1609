@@ -17,6 +17,10 @@ class Rhombus:
             if value <= 0:
                 logger.error("Value should be > 0")
                 return
+            if name == "angle_b" or name == "angle_a":
+                if value >= 180:
+                    logger.error("Value should be < 180")
+                    return
         super().__setattr__(name, value)
 
     def __str__(self):
@@ -50,13 +54,14 @@ class Rhombus:
 
 
 rhombus_1 = Rhombus()
-rhombus_1.angle_a = 45
-print(rhombus_1)
-rhombus_1.angle_b = 63
 rhombus_1.side_a = 5
+rhombus_1.angle_a = 179
+rhombus_1.angle_b = 179
 print(rhombus_1)
 
 rhombus_1.side_a = 0
+rhombus_1.angle_a = 180
+rhombus_1.angle_a = -200
 rhombus_1.angle_a = 0
 rhombus_1.angle_b = 0
 print(rhombus_1)
