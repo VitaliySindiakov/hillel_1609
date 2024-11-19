@@ -25,10 +25,7 @@ def log_arguments_and_result(func):
 
 @log_arguments_and_result
 def find_el_in_list(elements: list, index: int):
-    if index < len(elements):
         return elements[index]
-    else:
-        raise ValueError
 
 
 find_el_in_list(["Alex", "Den", "Ivan"], 1)
