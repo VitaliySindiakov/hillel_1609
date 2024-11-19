@@ -15,8 +15,7 @@ def fibonacci_sequence(n):
     a, b = 0, 1
     while a <= n:
         yield a
-        a = b
-        b = a + b
+        a, b = b, a + b
 
 n = 20
 for number in fibonacci_sequence(n):
