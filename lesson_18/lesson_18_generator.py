@@ -17,6 +17,7 @@ def fibonacci_sequence(n):
         yield a
         a, b = b, a + b
 
+
 n = 20
 for number in fibonacci_sequence(n):
     print(number)

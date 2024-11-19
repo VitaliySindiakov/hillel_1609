@@ -62,8 +62,9 @@ def test_revert_iter(expected: list, actual: list):
     print("Actual = ", actual)
     assert expected == actual
 
+
 @pytest.mark.parametrize("expected, actual", [
-    ([2,4,6], list(Prime_Iter(7)))
+    ([2, 4, 6], list(Prime_Iter(7)))
 ])
 def test_prime_iter(expected: int, actual: int):
     print("Expected = ", expected)

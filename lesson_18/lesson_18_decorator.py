@@ -17,7 +17,7 @@ def log_arguments_and_result(func):
             logging.info(f"Function: {func.__name__} returned: {result}")
             return result
         except Exception as e:
-            logging.error(f"Exception occurred in function {func.__name__}: {e}")
+            logging.error(f"Exception in function {func.__name__}: {e}")
         return result
 
     return wrapper
@@ -25,7 +25,7 @@ def log_arguments_and_result(func):
 
 @log_arguments_and_result
 def find_el_in_list(elements: list, index: int):
-        return elements[index]
+    return elements[index]
 
 
 find_el_in_list(["Alex", "Den", "Ivan"], 1)
