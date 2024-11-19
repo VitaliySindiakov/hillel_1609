@@ -15,7 +15,7 @@ def log_arguments_and_result(func):
         try:
             result = func(*args, **kwargs)
             logging.info(f"Function: {func.__name__} returned: {result}")
-            return func(*args, **kwargs)
+            return result
         except Exception as e:
             logging.error(f"Exception occurred in function {func.__name__}: {e}")
         return result
