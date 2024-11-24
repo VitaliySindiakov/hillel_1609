@@ -11,6 +11,7 @@ def test_download_photo(url, params):
     assert response.status_code == 200
     data = response.json()
     photos = data.get('photos', [])
+    assert len(photos) > 0
     counter = 1
     for photo in photos:
         img_url = photo.get('img_src')
