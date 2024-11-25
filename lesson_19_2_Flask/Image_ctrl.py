@@ -7,20 +7,20 @@ class ImageCtrl:
 
     def upload_image(self, image_path):
         with open(image_path, "rb") as image_file:
-            data = {"image": image_file.read()}
+            data = {"image": image_file}
+            response = requests.post(f"{self.url}/upload", files=data)
 
-        response = requests.post(f"{self.url}/upload", files=data)
         if response.status_code != 201:
             print("Image isn't downloaded")
         return response.json()["image_url"]
 
-    def get_image_url(self, filename, headers=None):
+    def get_image(self, filename, headers):
         response = requests.get(f"{self.url}/image/{filename}", headers=headers)
-        return response.json()["image_url"]
+        return response
 
     def delete_image(self, filename):
         response = requests.delete(f"{self.url}/delete/{filename}")
-        return response.json()
+        return response
 
     if __name__ == "__main__":
         pass

@@ -1,21 +1,35 @@
 import os
+import pytest
 from Image_ctrl import ImageCtrl
 
 current_dir = os.path.dirname(__file__)
 
 
-def test_upload():
-    file_path = os.path.join(current_dir, "images", "example.jpg")
+@pytest.mark.parametrize("image_name", [("example.jpg")])
+def test_upload(image_name):
+    file_path = os.path.join(current_dir, "images", image_name)
     image_url: str = ImageCtrl().upload_image(file_path)
-    assert "image" in image_url
+    assert image_name in image_url
 
 
-def test_get_image_url():
+@pytest.mark.parametrize("image_name", [("example.jpg")])
+def test_get_image_url(image_name):
     headers = {'Content-Type': "text"}
-    image_url: str = ImageCtrl().get_image_url("image", headers)
-    assert "image" in image_url
+    response = ImageCtrl().get_image(image_name, headers)
+    assert response.status_code == 200
+    assert image_name in response.json()["image_url"]
 
 
-def test_delete_image():
-    response = ImageCtrl().delete_image("image")
-    assert response == 200
+@pytest.mark.parametrize("image_name", [("example.jpg")])
+def test_get_image_json(image_name):
+    headers = {'Content-Type': "image"}
+    response = ImageCtrl().get_image(image_name, headers)
+    assert response.status_code == 200
+
+
+@pytest.mark.parametrize("image_name", [("example.jpg")])
+def test_delete_image(image_name):
+    response = ImageCtrl().delete_image(image_name)
+    message = response.json()["message"]
+    assert response.status_code == 200
+    assert f'Image {image_name} deleted' in message
