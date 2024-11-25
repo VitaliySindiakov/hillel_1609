@@ -1,8 +1,8 @@
 import os
-import pytest
 from Image_ctrl import ImageCtrl
 
 current_dir = os.path.dirname(__file__)
+
 
 def test_upload():
     file_path = os.path.join(current_dir, "images", "example.jpg")
@@ -19,6 +19,3 @@ def test_get_image_url():
 def test_delete_image():
     response = ImageCtrl().delete_image("image")
     assert response == 200
-
-
-

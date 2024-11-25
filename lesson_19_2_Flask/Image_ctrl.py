@@ -8,10 +8,11 @@ class ImageCtrl:
     def upload_image(self, image_path):
         with open(image_path, "rb") as image_file:
             data = {"image": image_file.read()}
-            response = requests.post(f"{self.url}/upload", files=data)
-            if response.status_code != 201:
-                print("Image isn't downloaded")
-            return response.json()["image_url"]
+
+        response = requests.post(f"{self.url}/upload", files=data)
+        if response.status_code != 201:
+            print("Image isn't downloaded")
+        return response.json()["image_url"]
 
     def get_image_url(self, filename, headers=None):
         response = requests.get(f"{self.url}/image/{filename}", headers=headers)
