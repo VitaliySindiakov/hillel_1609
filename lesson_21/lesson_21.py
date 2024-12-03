@@ -19,23 +19,24 @@ def check_logs(logs_to_read):
 
         for line in lines:
             if "Key TSTFEED0300|7E3E|0400" in line:
-                timeStamp: str = line.split("Timestamp ")[1].split(" ")[0]
-                date = datetime.strptime(timeStamp, "%H:%M:%S")
-                if previous_date is None:
-                    previous_date = date
-                    continue
-                else:
-                    dif_time = previous_date - date
-                    write_new_logs(dif_time.total_seconds(), date, line)
-                    previous_date = date
+                if "Timestamp " in line:
+                    timeStamp: str = line.split("Timestamp ")[1].split(" ")[0]
+                    date = datetime.strptime(timeStamp, "%H:%M:%S")
+                    if previous_date is None:
+                        previous_date = date
+                        continue
+                    else:
+                        dif_time = previous_date - date
+                        write_new_logs(dif_time.total_seconds(), date, line)
+                        previous_date = date
 
 
 def write_new_logs(dif_time, date: datetime, line):
-    date_str: str = f"{date.hour}:{date.minute}:{date.second}"
+    msg = f"[HEARTBEAT = {dif_time}] [Time = {date.strftime("%H:%M:%S")}] Log = {line}"
     if 31 <= dif_time < 33:
-        logger.warning(f"WARNING  {date_str} = {line}")
+        logger.warning(f"WARNING {msg}")
     elif dif_time >= 33:
-        logger.error(f"ERROR {date_str} = {line}")
+        logger.error(f"ERROR {msg}")
 
 
 @pytest.mark.parametrize("logs_to_read, logs_to_write", [
@@ -48,4 +49,3 @@ def test_log_file(logs_to_read, logs_to_write):
         assert len(content) > 0
         assert "WARNING" in content
         assert "ERROR" in content
-
