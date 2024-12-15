@@ -85,7 +85,7 @@ try:
     session.commit()
     session.add_all(all_students)
     session.commit()
-    add_new_student("William", 44, course=random.choice(all_courses))
+    add_new_student("William", 45, course=random.choice(all_courses))
     update_student("John", 31, course=random.choice(all_courses))
     delete_student("Andrew")
     print_all_students()
