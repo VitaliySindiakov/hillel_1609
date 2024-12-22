@@ -54,12 +54,12 @@ def test_login():
 
 
 @pytest.mark.parametrize("sort_by, limit", [
-    ("brand", 5),
-    ("year", 10),
+    ("brand", 4),
+    ("year", 6),
     ("engine_volume", 7),
     ("price", 2),
     ("year", None),
-    (None, 3),
+    (None, 1),
 ])
 def test_find_car(sort_by, limit):
     params = {"sort_by": sort_by, "limit": limit}
