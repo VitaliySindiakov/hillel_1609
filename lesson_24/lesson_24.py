@@ -11,6 +11,9 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger("test_logger")
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+logger.addHandler(console_handler)
 
 
 class CarAPI:
@@ -23,8 +26,7 @@ class CarAPI:
         logger.info("Authorization")
         response: Response = requests.post(
             url=f"{cls.__base_url}/auth",
-            auth=(cls.__user["username"], cls.__user["password"])
-        )
+            auth=(cls.__user["username"], cls.__user["password"]))
         cls.__access_token = response.json().get("access_token")
         return response
 
@@ -43,7 +45,8 @@ class CarAPI:
 
         logger.info("Getting token")
         return cls.__access_token
-
+CarAPI.auth()
+CarAPI.auth()
 
 @pytest.fixture(scope="class")
 def test_login():
