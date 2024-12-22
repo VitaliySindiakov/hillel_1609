@@ -45,8 +45,6 @@ class CarAPI:
 
         logger.info("Getting token")
         return cls.__access_token
-CarAPI.auth()
-CarAPI.auth()
 
 @pytest.fixture(scope="class")
 def test_login():
