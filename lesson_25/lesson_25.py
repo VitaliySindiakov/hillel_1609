@@ -65,7 +65,7 @@ about_block_all_text: list[WebElement] = webdriver.find_elements(by=By.CSS_SELEC
 
 def find_element_by_text(elements: list[WebElement], text: str) -> WebElement:
     for el in elements:
-        if text in el.text:
+        if text == el.text:
             return el
 
 
