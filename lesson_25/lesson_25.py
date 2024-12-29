@@ -1,12 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium import webdriver
 from time import sleep
-
 from selenium.webdriver.remote.webelement import WebElement
-
-webdriver = webdriver.Chrome()
-webdriver.get("<https://UserName:Password@qauto2.forstudy.space>;")  # логін не працює
-sleep(5)
 
 about_text_1 = "Keep track of your replacement schedule and plan your vehicle maintenance expenses in advance."
 about_text_2 = "Watch over 100 instructions and repair your car yourself."
@@ -58,5 +53,3 @@ def find_element_by_text(elements: list[WebElement], text: str) -> WebElement:
 
 about_block_el_1: WebElement = find_element_by_text(about_block_all_text, about_text_1)
 about_block_el_2: WebElement = find_element_by_text(about_block_all_text, about_text_2)
-
-webdriver.close()
