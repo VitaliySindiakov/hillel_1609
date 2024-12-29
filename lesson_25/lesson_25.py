@@ -16,6 +16,7 @@ registration_reenter_password = webdriver.find_element(by=By.XPATH, value='//lab
 registration_close = webdriver.find_element(by=By.XPATH, value='//*[@class="close"]')
 registration_register = webdriver.find_element(by=By.XPATH, value='//*[text()="Register"]')
 registration_close.click()
+
 sign_in_button = webdriver.find_element(by=By.XPATH, value='//button[@class="btn btn-outline-white header_signin"]')
 sign_in_button.click()
 login_email = webdriver.find_element(by=By.XPATH, value='//input[@name="email"]')
@@ -24,6 +25,7 @@ login_login_button = webdriver.find_element(by=By.XPATH,
                                             value='//div[contains(@class, "modal-footer")]/button[contains(@class, "btn-primary")]')
 login_close_button = webdriver.find_element(by=By.XPATH, value='//div[@class="modal-header"]/button')
 login_close_button.click()
+
 guest_log_in_button = webdriver.find_element(by=By.XPATH, value='//app-header/header//button[text()="Guest log in"]')
 about_button = webdriver.find_element(by=By.XPATH, value='//app-header/header//button[text()="About"]')
 contacts_button = webdriver.find_element(by=By.XPATH, value='//app-header/header//button[text()="Contacts"]')
@@ -48,7 +50,9 @@ footer_contacts_youtube_link = webdriver.find_element(by=By.CSS_SELECTOR, value=
 footer_contacts_linkedin_link = webdriver.find_element(by=By.CSS_SELECTOR, value='a[href*="linkedin"].socials_link')
 header_sign_in_button = webdriver.find_element(by=By.CSS_SELECTOR, value='.header .header_signin')
 header_guest_log_in_button = webdriver.find_element(by=By.CSS_SELECTOR, value='.header .-guest')
+
 sign_up_button = webdriver.find_element(by=By.CSS_SELECTOR, value='.section.hero button')
+sign_in_button.click()
 registration_name = webdriver.find_element(by=By.CSS_SELECTOR, value='input[name="name"]')
 registration_last_name = webdriver.find_element(by=By.CSS_SELECTOR, value='input[name="lastName"]')
 registration_email = webdriver.find_element(by=By.CSS_SELECTOR, value='input[name="email"]')
@@ -57,6 +61,7 @@ registration_reenter_password = webdriver.find_element(by=By.CSS_SELECTOR, value
 registration_register = webdriver.find_element(by=By.CSS_SELECTOR, value='.modal-footer button')
 registration_close = webdriver.find_element(by=By.CSS_SELECTOR, value='.modal-header button')
 registration_close.click()
+
 sign_in_button = webdriver.find_element(by=By.CSS_SELECTOR, value='button.header_signin')
 sign_in_button.click()
 login_email = webdriver.find_element(by=By.CSS_SELECTOR, value='input[name="email"]')
@@ -64,6 +69,7 @@ login_password = webdriver.find_element(by=By.CSS_SELECTOR, value='input[name="p
 login_login_button = webdriver.find_element(by=By.CSS_SELECTOR, value='div.modal-footer > button.btn-primary')
 login_close_button = webdriver.find_element(by=By.CSS_SELECTOR, value='div.modal-header > button')
 login_close_button.click()
+
 support_hillel_link = webdriver.find_element(by=By.CSS_SELECTOR, value='a.contacts_link[href^="https"]')
 video_title = webdriver.find_element(by=By.CSS_SELECTOR, value='.ytp-title-text .yt-uix-sessionlink')
 about_button = webdriver.find_element(by=By.CSS_SELECTOR, value='.btn.header-link[appscrollto=aboutSection]')
