@@ -33,9 +33,9 @@ def test_registration(driver_session, home_page_session):
     home_page_session.set_registration_password("Ab!123456" + str(rnd))
     home_page_session.set_registration_reenter_password("Ab!123456" + str(rnd))
 
-    main_page: MainPage = home_page_session.click_registration_register()
+    main_page: MainPage = home_page_session.click_registration()
     main_page.check_is_correct_url()
 
-    # напевно краще було б загорнути в методи, але залишив для наглядності
+    # можливо краще було б загорнути в методи, але залишив для наглядності
     assert "Garage" in main_page.main_content_block().text
     assert main_page.profile_dropdown().is_displayed()

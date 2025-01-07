@@ -35,6 +35,6 @@ class HomePage(BasePage):
     def register_button(self) -> WebElement:
         return self._button(self.locators.registration_register, "Register button")
 
-    def click_registration_register(self) -> MainPage:
+    def click_registration(self) -> MainPage:
         self.register_button().click()
         return MainPage(self._driver)
