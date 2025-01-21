@@ -18,7 +18,7 @@ def driver():
 @allure.feature('Nova Posta')
 @allure.story('Track package')
 @allure.title("check track number")
-@pytest.mark.nova
+@pytest.mark.np
 def test_nova_poshta_tracking(driver):
     home_page = HomePage(driver)
 
