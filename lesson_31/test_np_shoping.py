@@ -6,12 +6,12 @@ import pytest
 @allure.feature('Math')
 @allure.story('check equals')
 @allure.title("check number")
-@pytest.mark.posta
+@pytest.mark.math
 def test_math(driver):
     assert 1 == 1
 
 
 @allure.title("just a failed test")
-@pytest.mark.posta
+@pytest.mark.math
 def test_failedtests():
     assert 1 == 2
