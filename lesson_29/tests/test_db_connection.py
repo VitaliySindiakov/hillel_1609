@@ -1,6 +1,6 @@
 import psycopg2
 import time
-
+import allure
 import pytest
 
 
@@ -23,21 +23,47 @@ def test_database_connection():
     """)
     conn.commit()
     yield conn
-    cursor.execute("""DROP TABLE users;""")
-    conn.commit()
+    drop_table(cursor, conn)
     cursor.close()
     conn.close()
 
 
-
+@allure.feature("Connection to DB")
+@allure.title("Test Insert, Update, Select - User")
 def test_data_insertion(test_database_connection):
     time.sleep(1)
     conn = test_database_connection
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO users (UserId, FirstName) VALUES (1, 'Vitalii')")
+    insert_user(cursor, conn, 1, "Vitalii")
+    update_user(cursor, conn, 1, "Vasia")
+    result = select_user_by_id(cursor, 1)
+    verify_user_name(result[1], "Vasia")
+
+
+@allure.step("Insert User")
+def insert_user(cursor, conn, id, user_name):
+    cursor.execute(f"INSERT INTO users (UserId, FirstName) VALUES ({id}, '{user_name}')")
     conn.commit()
-    cursor.execute("UPDATE users SET FirstName='Vasia' WHERE UserId=1")
+
+
+@allure.step("Update User")
+def update_user(cursor, conn, id, user_name):
+    cursor.execute(f"UPDATE users SET FirstName='{user_name}' WHERE UserId={id}")
     conn.commit()
-    cursor.execute("SELECT * FROM users WHERE UserId=1")
-    result = cursor.fetchone()
-    assert result[1] == 'Vasia'
+
+
+@allure.step("Select User")
+def select_user_by_id(cursor, id):
+    cursor.execute(f"SELECT * FROM users WHERE UserId={id}")
+    return cursor.fetchone()
+
+
+@allure.step("Verify User FirstName")
+def verify_user_name(actual_name, expected_name):
+    assert actual_name == expected_name
+
+
+@allure.step("Drop Table Users")
+def drop_table(cursor, conn):
+    cursor.execute("""DROP TABLE users;""")
+    conn.commit()
