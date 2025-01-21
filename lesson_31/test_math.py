@@ -14,3 +14,9 @@ def test_math():
 @pytest.mark.math
 def test_math_2():
     assert 1 == 1
+
+
+@allure.title("just a failed test")
+@pytest.mark.math
+def test_failedtests():
+    assert 1 == 2
