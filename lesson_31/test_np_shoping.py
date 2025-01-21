@@ -13,10 +13,11 @@ def driver():
     yield driver
     driver.close()
 
-@allure.epic('Api tests')
-@allure.feature('Gorest')
-@allure.story('Creating users')
-@allure.title("Create user positive")
+
+@allure.epic('UI tests')
+@allure.feature('Nova Posta')
+@allure.story('Track package')
+@allure.title("check track number")
 @pytest.mark.nova
 def test_nova_poshta_tracking(driver):
     home_page = HomePage(driver)
@@ -35,3 +36,7 @@ def test_nova_poshta_tracking(driver):
     assert "Ми не знайшли посилку за таким номером" in home_page.tracking_row_text().text
 
 
+@allure.title("just a failed test")
+@pytest.mark.nova
+def test_failedtests():
+    assert 1 == 2
