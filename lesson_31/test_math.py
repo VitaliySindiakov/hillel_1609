@@ -10,6 +10,11 @@ import pytest
 def test_math():
     assert 1 == 1
 
+@allure.title("check number 2")
+@pytest.mark.math
+def test_math_2():
+    assert 1 == 1
+
 
 @allure.title("just a failed test")
 @pytest.mark.math
