@@ -7,7 +7,7 @@ import pytest
 @allure.story('check equals')
 @allure.title("check number")
 @pytest.mark.math
-def test_math(driver):
+def test_math():
     assert 1 == 1
 
 
