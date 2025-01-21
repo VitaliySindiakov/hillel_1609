@@ -18,7 +18,7 @@ def driver():
 @allure.feature('Nova Posta')
 @allure.story('Track package')
 @allure.title("check track number")
-@pytest.mark.np
+@pytest.mark.posta
 def test_nova_poshta_tracking(driver):
     home_page = HomePage(driver)
 
@@ -37,6 +37,6 @@ def test_nova_poshta_tracking(driver):
 
 
 @allure.title("just a failed test")
-@pytest.mark.nova
+@pytest.mark.posta
 def test_failedtests():
     assert 1 == 2
